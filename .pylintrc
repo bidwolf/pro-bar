@@ -4,7 +4,9 @@
 # 3 compatible code, which means that the block might have code that exists
 # only in one or another interpreter, leading to false positives when analysed.
 analyse-fallback-blocks=no
-
+# List of disabled warnings, separated by a comma
+disable=
+      R0903,  # Too few public methods
 # Clear in-memory caches upon conclusion of linting. Useful if running pylint
 # in a server-like mode.
 clear-cache-post-run=no

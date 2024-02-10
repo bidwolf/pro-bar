@@ -54,3 +54,84 @@ First your code has to use the pattern of routes and server with blueprints of F
 
 >[!IMPORTANT]
 > You have to create a `__init__.py` file on each module to allow you import them from other sources in your codebase.
+
+### Source tree
+Your source code will be like this:
+
+```bash
+.
+├── requirements.txt
+├── run.py
+└── src
+   ├── __init__.py
+   ├── main
+   │   ├── __init__.py
+   │   │
+   │   ├── routes
+   │   │   ├── __init__.py
+   │   │   │
+   │   │   └── your_route.py
+   │   └── server
+   │       ├── __init__.py
+   │       │
+   │       └── server.py
+   │
+   └── views
+       ├── http_types
+       │   ├── http_request.py
+       │   ├── http_response.py
+       │   └── __init__.py
+       │   
+       ├── __init__.py
+       │
+       └── your_route_view.py
+```
+
+Each directory has a significant job
+
+directory|description
+:---:|:---:
+main|This is where your application is created, classes will be instanced and all logic of routes is used
+routes|This is where you can make your blueprint routes to encapsulate the logic of each different route
+server|This is where you can register all of your created blueprints in your application to be used on the server
+views| This is where you can make your types and classes to make sure that your app will work as expected
+
+> The run.py is used to run your application in a specific host and port
+
+
+### Creating a blueprint
+
+In the `routes` directory, you will create a file with a suggestive name to your purpose, like `user_routes.py`.
+```python
+from flask import Blueprint, jsonify, request
+
+user_routes_bp = Blueprint("user_routes", __name__)
+
+#...rest of your code
+
+```
+
+>[!NOTE]
+> This will just create an instance of Blueprint of Flask with a signature "user_routes"
+
+then you can create any route with any method related to that blueprint
+
+```py
+#... example above
+
+@user_routes_bp.route("/create_user",methods=["POST"])
+def create_user():
+  ### business logic here
+
+@user_routes_bp.route("/user",methods=["GET"])
+def get_user():
+  ### business logic here
+
+@user_routes_bp.route("/user/:id",methods=["DELETE"])
+def delete_user():
+  ### business logic here
+```
+
+### Registering blueprint
+
+This is quite simple to do, you just need to import your blueprint in the `server` directory from the `routes` directory them use `app.register_blueprint(imported_blueprint)`, and done!
