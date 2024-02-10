@@ -42,10 +42,10 @@ Para isso basta executar o comando:
 
 Agora podemos fazer a instalação dos pacotes principais que são eles:
 
-- Flask
-- python-barcode
-- pillow
-- cerberus
+- Flask - Um framework web para construção de apis robustas e escaláveis
+- python-barcode - Uma biblioteca feita para criação de imagens de código de barra à partir de strings
+- pillow - Uma dependência necessária para o funcionamento da biblioteca python-barcode
+- cerberus - Uma biblioteca utilizada para validação robusta e prática
 
 ## Architecture (EN)
 
@@ -148,3 +148,26 @@ def delete_user():
 ### Registering blueprint
 
 This is quite simple to do, you just need to import your blueprint in the `server` directory from the `routes` directory them use `app.register_blueprint(imported_blueprint)`, and done!
+
+### Creating a Customized Error
+
+This is the finesse of inheritance and polymorphism, here in our codebase we actually can create any error type for our project.
+This is because python is a object oriented language, that allow us to work very well with that concept.
+
+So to create a http_unauthorized_entity error, you can follow this steps:
+
+1. create a module responsible to contain the class `HttpUnauthorizedEntity`
+2. Then you use the concept of polymorphism like this:
+  ```python
+  class HttpUnauthorizedEntity(Exception): # this receive an Exception as argument
+    def __init__(self, message:str): # this is the constructor
+      self.message = message
+      self.status_code = 401
+      self.name = "Unauthorized Entity"
+      super().__init__(self.message) # this call the constructor of the inherited class and pass the message to the argument
+
+  ```
+
+> And that's it! This is an Customized error class that inherit from the Exception interface
+
+To verify if a object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`. 
