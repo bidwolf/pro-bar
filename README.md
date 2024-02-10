@@ -45,6 +45,7 @@ Agora podemos fazer a instalação dos pacotes principais que são eles:
 - Flask
 - python-barcode
 - pillow
+- cerberus
 
 ## Architecture (EN)
 
