@@ -76,15 +76,26 @@ Your source code will be like this:
    │       │
    │       └── server.py
    │
-   └── views
-       ├── http_types
-       │   ├── http_request.py
-       │   ├── http_response.py
-       │   └── __init__.py
-       │   
-       ├── __init__.py
-       │
-       └── your_route_view.py
+   ├── views
+   │    ├── http_types
+   │    │   ├── http_request.py
+   │    │   ├── http_response.py
+   │    │   └── __init__.py
+   │    │   
+   │    ├── __init__.py
+   │    │
+   │    └── your_route_view.py
+   ├── drivers
+   │    ├── __init__.py
+   │    │ 
+   │    └── your_lib_driver.py
+   │
+   │
+   └── controllers
+        ├── __init__.py
+        │ 
+        └── your_business_controller.py         
+
 ```
 
 Each directory has a significant job
@@ -94,8 +105,9 @@ directory|description
 main|This is where your application is created, classes will be instanced and all logic of routes is used
 routes|This is where you can make your blueprint routes to encapsulate the logic of each different route
 server|This is where you can register all of your created blueprints in your application to be used on the server
-views| This is where you can make your types and classes to make sure that your app will work as expected
-
+views|This is where you can make your types and classes to make sure that your app will work as expected
+drivers|This is where you have to encapsulate your libraries to ensure that if something went wrong you can easily migrate to another solution
+controllers|This is where you must apply the business logic that is just responsible to that. 
 > The run.py is used to run your application in a specific host and port
 
 
