@@ -49,12 +49,12 @@ Agora podemos fazer a instalação dos pacotes principais que são eles:
 
 ## Architecture (EN)
 
-Ok, actually you have just installed things, now you will structure your code to create a modular application with the right responsibilities.
+Ok, you have just installed things, and now you will structure your code to create a modular application with the right responsibilities.
 
-First your code has to use the pattern of routes and server with blueprints of Flask, that allows you register your routes with a few line of code.
+First, your code has to use the pattern of routes and server with blueprints of Flask, which allows you to register your routes with a few lines of code.
 
 >[!IMPORTANT]
-> You have to create a `__init__.py` file on each module to allow you import them from other sources in your codebase.
+> You have to create a `__init__.py` file on each module to allow you to import them from other sources in your codebase.
 
 ### Source tree
 Your source code will be like this:
@@ -63,49 +63,49 @@ Your source code will be like this:
 .
 ├── requirements.txt
 ├── run.py
-└── src
-   ├── __init__.py
-   ├── main
-   │   ├── __init__.py
+└──📂 src
+   ├──🐍 __init__.py
+   ├──📂 main
+   │   ├──🐍 __init__.py
    │   │
-   │   ├── routes
-   │   │   ├── __init__.py
+   │   ├──📂 routes
+   │   │   ├──🐍 __init__.py
    │   │   │
-   │   │   └── your_route.py
-   │   └── server
-   │       ├── __init__.py
+   │   │   └──🐍 your_route.py
+   │   └──📂 server
+   │       ├──🐍 __init__.py
    │       │
-   │       └── server.py
+   │       └──🐍 server.py
    │
-   ├── views
-   │    ├── http_types
-   │    │   ├── http_request.py
-   │    │   ├── http_response.py
-   │    │   └── __init__.py
+   ├──📂 views
+   │    ├──📂 http_types
+   │    │   ├──🐍 http_request.py
+   │    │   ├──🐍 http_response.py
+   │    │   └──🐍 __init__.py
    │    │   
-   │    ├── __init__.py
+   │    ├──🐍 __init__.py
    │    │
-   │    └── your_route_view.py
-   ├── drivers
-   │    ├── __init__.py
+   │    └──🐍 your_route_view.py
+   ├──📂 drivers
+   │    ├──🐍 __init__.py
    │    │ 
-   │    └── your_lib_driver.py
-   ├── errors
-   │    ├── error_types
-   │    │   ├── http_unprocessable_entity.py
-   │    │   ├── http_unauthorized_entity.py
-   │    │   └── __init__.py
-   │    ├── error_handler.py
-   │    └── __init__.py
-   ├── validators
-   │    ├── __init__.py
+   │    └──🐍 your_lib_driver.py
+   ├──📂 errors
+   │    ├──📂 error_types
+   │    │   ├──🐍 http_unprocessable_entity.py
+   │    │   ├──🐍 http_unauthorized_entity.py
+   │    │   └──🐍 __init__.py
+   │    ├──🐍 error_handler.py
+   │    └──🐍 __init__.py
+   ├──📂 validators
+   │    ├──🐍 __init__.py
    │    │ 
-   │    └── your_route_validator.py   
+   │    └──🐍 your_route_validator.py   
    │
-   └── controllers
-        ├── __init__.py
+   └──📂 controllers
+        ├──🐍 __init__.py
         │ 
-        └── your_business_controller.py         
+        └──🐍 your_business_controller.py         
 
 ```
 
@@ -117,10 +117,10 @@ main|This is where your application is created, classes will be instanced and al
 routes|This is where you can make your blueprint routes to encapsulate the logic of each different route
 server|This is where you can register all of your created blueprints in your application to be used on the server
 views|This is where you can make your types and classes to make sure that your app will work as expected
-drivers|This is where you have to encapsulate your libraries to ensure that if something went wrong you can easily migrate to another solution
-controllers|This is where you must apply the business logic that is just responsible to that.
-errors|This is where your application handle errors, customized or not.
-error_types|This is where your application create customized errors
+drivers|This is where you have to encapsulate your libraries to ensure that if something goes wrong you can easily migrate to another solution
+controllers|This is where you must apply the business logic that is just responsible for that.
+errors|This is where your application handles errors, customized or not.
+error_types|This is where your application creates customized errors
 validators|This is where you can create different validations on your application
 > The run.py is used to run your application in a specific host and port
 
@@ -160,16 +160,16 @@ def delete_user():
 
 ### Registering blueprint
 
-This is quite simple to do, you just need to import your blueprint in the `server` directory from the `routes` directory them use `app.register_blueprint(imported_blueprint)`, and done!
+This is quite simple to do, you just need to import your blueprint in the `server` directory from the `routes` directory then use `app.register_blueprint(imported_blueprint)`, and done!
 
 ### Creating a Customized Error
 
 This is the finesse of inheritance and polymorphism, here in our codebase we actually can create any error type for our project.
-This is because python is a object oriented language, that allow us to work very well with that concept.
+This is because Python is an object-oriented language, that allows us to work very well with that concept.
 
-So to create a http_unauthorized_entity error, you can follow this steps:
+So to create a http_unauthorized_entity error, you can follow these steps:
 
-1. create a module responsible to contain the class `HttpUnauthorizedEntity`
+1. create a module responsible for containing the class `HttpUnauthorizedEntity`
 2. Then you use the concept of polymorphism like this:
   ```python
   class HttpUnauthorizedEntity(Exception): # this receive an Exception as argument
@@ -177,10 +177,10 @@ So to create a http_unauthorized_entity error, you can follow this steps:
       self.message = message
       self.status_code = 401
       self.name = "Unauthorized Entity"
-      super().__init__(self.message) # this call the constructor of the inherited class and pass the message to the argument
+      super().__init__(self.message) # This call the constructor of the inherited class and passes the message to the argument
 
   ```
 
-> And that's it! This is an Customized error class that inherit from the Exception interface
+> And that's it! This is a Customized error class that inherits from the Exception interface
 
-To verify if a object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`. 
+To verify if an object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`. 
