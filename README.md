@@ -61,8 +61,8 @@ Your source code will be like this:
 
 ```bash
 .
-├── requirements.txt
-├── run.py
+├──📝 requirements.txt
+├──🐍 run.py
 └──📂 src
    ├──🐍 __init__.py
    ├──📂 main
