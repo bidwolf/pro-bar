@@ -1,6 +1,10 @@
 {
   "cSpell.words": [
-    "jsonify"
+    "docparams",
+    "jsonify",
+    "pylint",
+    "pylintrc",
+    "rcfile"
   ],
   "files.exclude": {
     "**/__pycache__":true
