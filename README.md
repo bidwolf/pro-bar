@@ -90,7 +90,17 @@ Your source code will be like this:
    │    ├── __init__.py
    │    │ 
    │    └── your_lib_driver.py
-   │
+   ├── errors
+   │    ├── error_types
+   │    │   ├── http_unprocessable_entity.py
+   │    │   ├── http_unauthorized_entity.py
+   │    │   └── __init__.py
+   │    ├── error_handler.py
+   │    └── __init__.py
+   ├── validators
+   │    ├── __init__.py
+   │    │ 
+   │    └── your_route_validator.py   
    │
    └── controllers
         ├── __init__.py
@@ -108,7 +118,10 @@ routes|This is where you can make your blueprint routes to encapsulate the logic
 server|This is where you can register all of your created blueprints in your application to be used on the server
 views|This is where you can make your types and classes to make sure that your app will work as expected
 drivers|This is where you have to encapsulate your libraries to ensure that if something went wrong you can easily migrate to another solution
-controllers|This is where you must apply the business logic that is just responsible to that. 
+controllers|This is where you must apply the business logic that is just responsible to that.
+errors|This is where your application handle errors, customized or not.
+error_types|This is where your application create customized errors
+validators|This is where you can create different validations on your application
 > The run.py is used to run your application in a specific host and port
 
 
