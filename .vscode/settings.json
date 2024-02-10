@@ -5,6 +5,7 @@
     "jsonify",
     "pylint",
     "pylintrc",
+    "pytest",
     "rcfile"
   ],
   "files.exclude": {

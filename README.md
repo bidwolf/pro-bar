@@ -46,7 +46,7 @@ Agora podemos fazer a instalação dos pacotes principais que são eles:
 - python-barcode - Uma biblioteca feita para criação de imagens de código de barra à partir de strings
 - pillow - Uma dependência necessária para o funcionamento da biblioteca python-barcode
 - cerberus - Uma biblioteca utilizada para validação robusta e prática
-
+- pytest - Biblioteca utilizada para criação de testes unitários em python
 ## Architecture (EN)
 
 Ok, actually you have just installed things, now you will structure your code to create a modular application with the right responsibilities.
@@ -122,6 +122,7 @@ controllers|This is where you must apply the business logic that is just respons
 errors|This is where your application handle errors, customized or not.
 error_types|This is where your application create customized errors
 validators|This is where you can create different validations on your application
+
 > The run.py is used to run your application in a specific host and port
 
 
@@ -183,4 +184,6 @@ So to create a http_unauthorized_entity error, you can follow this steps:
 
 > And that's it! This is an Customized error class that inherit from the Exception interface
 
-To verify if a object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`. 
+To verify if a object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`.
+
+## Tests
