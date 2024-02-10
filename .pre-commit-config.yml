@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+      - id:Python lint
+        name: Python lint
+        entry: python
+        language: system
+        files: \.py$
+        types: [python]
+        args: [
+          "-rn",
+          "-sn",
+          "--rcfile=.pylintrc",
+          "--load-plugins=pylint.extensions.docparams",
+        ]
