@@ -1,8 +1,0 @@
-{
-  "python.pythonPath": "/.venv/bin/python",
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.formatting.provider": "ms-python.python",
-    "python.autoComplete.addBrackets": true,
-    "python.analysis.typeCheckingMode": "basic",
-}

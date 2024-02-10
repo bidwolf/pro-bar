@@ -2,5 +2,6 @@
   "recommendations": [
   "ms-python.python",
   "ms-python.pylint",
+  "kevinrose.vsc-python-indent",
 ]
 }
