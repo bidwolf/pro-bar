@@ -45,3 +45,12 @@ Agora podemos fazer a instalação dos pacotes principais que são eles:
 - Flask
 - python-barcode
 - pillow
+
+## Architecture (EN)
+
+Ok, actually you have just installed things, now you will structure your code to create a modular application with the right responsibilities.
+
+First your code has to use the pattern of routes and server with blueprints of Flask, that allows you register your routes with a few line of code.
+
+>[!IMPORTANT]
+> You have to create a `__init__.py` file on each module to allow you import them from other sources in your codebase.

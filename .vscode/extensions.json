@@ -3,5 +3,7 @@
   "ms-python.python",
   "ms-python.pylint",
   "kevinrose.vsc-python-indent",
+  "ms-python.black-formatter",
+  "streetsidesoftware.code-spell-checker",
 ]
 }
