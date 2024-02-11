@@ -1,7 +1,9 @@
 # Projeto NLW Python
 
 Este é um projeto inspirado no nlw de fevereiro da rocketseat para utilização de python para criação de uma aplicação baseada em códigos de barra.
-
+### Techs
+![python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) 
+![flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ## Configurando o ambiente
 
 O primeiro passo é criar um ambiente virtual para a instalação de pacotes e configuração de ambiente utilizando venv.
@@ -179,21 +181,21 @@ So to create a http_unauthorized_entity error, you can follow these steps:
       self.message = message
       self.status_code = 401
       self.name = "Unauthorized Entity"
-      super().__init__(self.message) # This call the constructor of the inherited class and passes the message to the argument
+      super().__init__(self.message) # This calls the constructor of the inherited class and passes the message to the argument
 
   ```
 
 > And that's it! This is a Customized error class that inherits from the Exception interface
 
-To verify if a object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`.
+To verify if an object `obj` is an instance of `customized_class` you can use the `isInstance(obj,customized_class)` that returns a `Boolean`.
 
 >[!NOTE]
-> The reserved word for throw an error in python is raise
+> The reserved word for throwing an error in Python is raise
 ## Tests
 
 So, now, we can talk about tests!
 
-The approach that we use here is creating the test in the same directory that the module that will be tested. This will help us to import easily the tested module.
+The approach that we use here is creating the test in the same directory as the module that will be tested. This will help us to import easily the tested module.
 
 ### The test name
 
@@ -203,7 +205,7 @@ Easier impossible, you can just put a `_test` before `.py` and that's it! Pytest
 Those 3 things is the philosophy for unit tests in pytest, and is a good way to start writing tests.
 
 #### Arrange
-To `arrange` your modules, the smartest way is mocking your case tests. In case that you find yourself testing some feature that you don't care about you can use the `patch` decorator from `unittest.mock` that allow you to mock some result from a class. The syntax is simple:
+To `arrange` your modules, the smartest way is to mock your case tests. In case you find yourself testing some feature that you don't care about you can use the `patch` decorator from `unittest.mock` that allows you to mock some results from a class. The syntax is simple:
 
 ```py
 
@@ -218,7 +220,7 @@ def test_your_module(mocked_awesome_method):
     # will be a wanted value 
     mocked_awesome_method.return_value = 'mocked_value'
     mocked_instance = AwesomeFunctionality()
-    # This method call NotCareAboutThisFunctionality.awesome_method in somewhere
+    # This method is called NotCareAboutThisFunctionality.awesome_method somewhere
     result = mocked_instance.awesome_feature()
     # ... assert things only about AwesomeFunctionality
 ```
@@ -250,7 +252,7 @@ Just verify if the result is what you expect, with python, the reserved word is 
 >      
 >      # act
 >
->      # This method call NotCareAboutThisFunctionality.awesome_method in somewhere
+>      # This method is called NotCareAboutThisFunctionality.awesome_method somewhere
 >      result = mocked_instance.awesome_feature()
 >
 >      # assert
